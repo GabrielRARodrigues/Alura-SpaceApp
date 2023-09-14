@@ -4,7 +4,7 @@ import banner from '../../assets/banner.png'
 
 const BannerContainer = styled.div`
   box-sizing: border-box;
-  max-width: 100%;
+  width: 100%;
   min-height: 328px;
 
   padding: 84px 64px;

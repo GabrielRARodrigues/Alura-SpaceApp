@@ -3,6 +3,9 @@ import EstilosGlobais from './componentes/EstilosGlobais'
 import Cabecalho from './componentes/Cabecalho'
 import BarraLateral from './componentes/BarraLateral'
 import Banner from './componentes/Banner'
+import Galeria from './componentes/Galeria'
+import fotos from './fotos.json'
+import { useState } from 'react'
 
 const FundoGradiente = styled.div`
   background: linear-gradient(
@@ -14,14 +17,36 @@ const FundoGradiente = styled.div`
   width: 100%;
   min-height: 100vh;
 `
+const AppContainer = styled.div`
+  width: 1440px;
+  max-width: 100%;
+  margin: 0 auto;
+`
+const MainContainer = styled.main`
+  display: flex;
+  gap: 24px;
+`
+const ConteudoGaleria = styled.section`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+`
 
-function App() {
+const App = () => {
+  const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
   return (
     <FundoGradiente>
       <EstilosGlobais />
-      <Cabecalho />
-      <BarraLateral />
-      <Banner />
+      <AppContainer>
+        <Cabecalho />
+        <MainContainer>
+          <BarraLateral />
+          <ConteudoGaleria>
+            <Banner />
+            <Galeria fotos={fotosDaGaleria} />
+          </ConteudoGaleria>
+        </MainContainer>
+      </AppContainer>
     </FundoGradiente>
   )
 }
