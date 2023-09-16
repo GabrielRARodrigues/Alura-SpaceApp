@@ -12,13 +12,14 @@ const SecaoFluida = styled.section`
 `
 const ListaFotos = styled.ul`
   list-style: none;
-
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
 `
 
-const Galeria = ({ fotos = [] }) => (
+const Galeria = ({ fotos = [], aoFotoSelecionada }) => (
   <>
     <Tags />
     <GaleriaContainer>
@@ -27,7 +28,7 @@ const Galeria = ({ fotos = [] }) => (
         <ListaFotos>
           {fotos.map(foto => (
             <li key={foto.id}>
-              <Imagem foto={foto} />
+              <Imagem foto={foto} aoZoomSolicitado={aoFotoSelecionada} />
             </li>
           ))}
         </ListaFotos>

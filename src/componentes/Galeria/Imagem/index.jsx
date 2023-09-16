@@ -13,6 +13,8 @@ const ImagensContainer = styled.figure`
 const ImagemEstilizada = styled.img`
   width: 100%;
   border-radius: 20px 20px 0 0;
+
+  object-fit: cover;
 `
 const ImagemLegenda = styled.figcaption`
   border-radius: 0px 0px 20px 20px;
@@ -55,8 +57,13 @@ const BotaoImagem = styled.button`
   cursor: pointer;
 `
 
-const Imagem = ({ foto, favoritado = false }) => (
-  <ImagensContainer>
+const Imagem = ({
+  foto,
+  expandida = false,
+  favoritado = false,
+  aoZoomSolicitado
+}) => (
+  <ImagensContainer $expandida={expandida}>
     <ImagemEstilizada src={foto.path} alt={foto.titulo} />
     <ImagemLegenda>
       <ImagemTitle>{foto.titulo}</ImagemTitle>
@@ -76,9 +83,18 @@ const Imagem = ({ foto, favoritado = false }) => (
               />
             )}
           </BotaoImagem>
-          <BotaoImagem>
-            <img src="/icones/expandir.png" alt="ícone de expandir" />
-          </BotaoImagem>
+          {!expandida && (
+            <BotaoImagem aria-hidden={expandida}>
+              <img
+                src="/icones/expandir.png"
+                alt="ícone de expandir"
+                onClick={() => {
+                  aoZoomSolicitado(foto)
+                  window.scroll(0, 147)
+                }}
+              />
+            </BotaoImagem>
+          )}
         </BotoesContainer>
       </ImagemRodape>
     </ImagemLegenda>
