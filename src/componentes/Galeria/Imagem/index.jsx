@@ -61,7 +61,8 @@ const Imagem = ({
   foto,
   expandida = false,
   favoritado = false,
-  aoZoomSolicitado
+  aoZoomSolicitado,
+  aoAlternarFavorito
 }) => (
   <ImagensContainer $expandida={expandida}>
     <ImagemEstilizada src={foto.path} alt={foto.titulo} />
@@ -70,7 +71,7 @@ const Imagem = ({
       <ImagemRodape>
         <ImagemFonte>{`fonte/${foto.fonte}`}</ImagemFonte>
         <BotoesContainer>
-          <BotaoImagem>
+          <BotaoImagem onClick={() => aoAlternarFavorito(foto)}>
             {favoritado ? (
               <img
                 src="/icones/favorito-ativo.png"

@@ -15,8 +15,8 @@ const ListaDeFotos = styled.ul`
   gap: 24px;
 `
 const ImagemContainer = styled.li`
-  max-width: 100%;
-  width: 212px;
+  max-width: 212px;
+  width: 100%;
   height: 158px;
 `
 

@@ -43,9 +43,16 @@ const IconLupa = styled.img`
   height: 36px;
 `
 
-const CampoTexto = () => (
+const CampoTexto = ({ busca, aoBuscar }) => (
   <ContainerEstilizado>
-    <InputEstilizado type="text" placeholder="O que você procura?" />
+    <InputEstilizado
+      onChange={({ target }) => {
+        aoBuscar(target.value)
+      }}
+      type="text"
+      placeholder="O que você procura?"
+      value={busca}
+    />
     <IconLupa src="/icones/lupa.png" alt="ícone de lupa" />
   </ContainerEstilizado>
 )

@@ -31,7 +31,7 @@ const Tag = styled.button`
   cursor: pointer;
 
   transition: border-color 0.3s ease;
-
+  border-color: ${props => (props.$tagSelecionada ? '#c98cf1' : 'transparent')};
   &:hover {
     border-color: #c98cf1;
   }
@@ -43,13 +43,18 @@ const ListaTagsEstilizada = styled.ul`
   gap: 32px;
 `
 
-const Tags = () => (
+const Tags = ({ aoFiltrarPorTag, tagSelecionadaId }) => (
   <TagsContainer>
     <TagTitulo>Buque por tags:</TagTitulo>
     <ListaTagsEstilizada>
       {tags.map(tag => (
         <li key={tag.id}>
-          <Tag>{tag.titulo}</Tag>
+          <Tag
+            $tagSelecionada={tagSelecionadaId === tag.tag}
+            onClick={() => aoFiltrarPorTag(tag.tag)}
+          >
+            {tag.titulo}
+          </Tag>
         </li>
       ))}
     </ListaTagsEstilizada>

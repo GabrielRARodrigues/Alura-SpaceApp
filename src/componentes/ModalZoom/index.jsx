@@ -44,16 +44,18 @@ const ButaoFecharDialog = styled.button`
   cursor: pointer;
 `
 
-const ModalZoom = ({ foto, aoFecharFotoSelecionada }) => (
+const ModalZoom = ({ foto, aoFecharFotoSelecionada, aoAlternarFavorito }) => (
   <>
     {foto && (
       <>
         <Overlay />
-        <DialogEstilizado
-          open={!!foto}
-          autoFocus
-        >
-          <Imagem foto={foto} expandida={true} />
+        <DialogEstilizado open={!!foto} autoFocus>
+          <Imagem
+            foto={foto}
+            expandida={true}
+            favoritado={foto.favorita}
+            aoAlternarFavorito={aoAlternarFavorito}
+          />
           <form method="dialog">
             <ButaoFecharDialog
               aria-label="Fechar modal"
