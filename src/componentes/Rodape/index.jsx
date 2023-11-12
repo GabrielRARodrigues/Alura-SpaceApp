@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 import twitter from '/imagens/sociais/twitter.svg'
-import instagram from '/public/imagens/sociais/instagram.svg'
-import facebook from '/public/imagens/sociais/facebook.svg'
+import instagram from '/imagens/sociais/instagram.svg'
+import facebook from '/imagens/sociais/facebook.svg'
 
 const FooterEstilizado = styled.footer`
   padding: 25px 45px;

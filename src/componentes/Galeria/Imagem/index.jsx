@@ -80,7 +80,7 @@ const Imagem = ({
             ) : (
               <img
                 src="/icones/favorito.png"
-                alt="ícone de coração sem preenchemento"
+                alt="ícone de coração sem preenchimento"
               />
             )}
           </BotaoImagem>

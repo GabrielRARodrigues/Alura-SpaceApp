@@ -58,6 +58,7 @@ const App = () => {
     }
     setFotosDaGaleria(fotosFiltradas)
   }, [tagSelecionadaId, filtro])
+  
   const aoAlternarFavorito = foto => {
     if (foto.id === fotoSelecionada?.id) {
       setFotoSelecionada({
